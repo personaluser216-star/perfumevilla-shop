@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 
 export const ShopContext = createContext();
 
-const backendUrl = "http://localhost:5000";
+const backendUrl = "https://perfumevillanodejsapi.onrender.com";
 
 const ShopContextProvider = ({ children }) => {
   const [products, setProducts] = useState([]);
