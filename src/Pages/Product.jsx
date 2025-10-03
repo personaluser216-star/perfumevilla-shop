@@ -10,7 +10,7 @@ import RelatedProduct from "../Componets/RelatedProduct";
 const Product = () => {
   const { name, id } = useParams();
   const navigate=useNavigate()
-  const { products, currency, addToCart } = useContext(ShopContext); // ✅ addToCart added
+  const { products, currency, addToCart ,addToWishlist} = useContext(ShopContext); // ✅ addToCart added
   const [selectedSize, setSelectedSize] = useState("");
   const [selectedFragrance, setSelectedFragrance] = useState("");
   const [productData, setProductData] = useState(null);
@@ -39,7 +39,12 @@ const handleAddToCart = async () => {
  await addToCart(productData._id, selectedSize, quantity); 
 
 };
+const handleAddTowishlist = async () => {
+ 
+   
+ await addToWishlist(productData._id, selectedSize, quantity); 
 
+};
   return (
     <div>
       {/* Banner Section */}
@@ -215,7 +220,9 @@ const handleAddToCart = async () => {
             <div className="grid md:grid-cols-2 gap-4">
               {/* Wishlist */}
               <div>
-                <button className="hover:bg-[#5b4f47] hover:text-white transition-colors duration-300 mt-10 border border-gray-500 w-full p-2 flex items-center justify-center gap-2">
+                <button 
+                onClick={handleAddTowishlist}
+                className="hover:bg-[#5b4f47] hover:text-white transition-colors duration-300 mt-10 border border-gray-500 w-full p-2 flex items-center justify-center gap-2">
                   <FaRegHeart className="text-lg" />
                   <span>Add To WishList</span>
                 </button>
