@@ -14,6 +14,10 @@ import ShopContextProvider from './Context/ShopContext';
 import AutoScrollTop from './Componets/AutoScrollTop';
 import Cart from './Pages/Cart';
 import { ToastContainer } from "react-toastify";
+import Wishlist from './Pages/WishList';
+import PlaceOrder from './Pages/PlaceOrder';
+import VerifyStripe from './Pages/VerifyStripe';
+import Orders from './Pages/Orders';
 
 const App = () => {
   return (
@@ -38,6 +42,10 @@ const App = () => {
 
       <Route path='/collection' element={<Collection/>}/>
       <Route path='/cart' element={<Cart/>}/>
+      <Route path='/wishlist' element={<Wishlist/>}/>
+      <Route path='/place-order' element={<PlaceOrder/>}/>
+      <Route path="/verify" element={<VerifyStripe />} />
+      <Route path='/orders' element={<Orders/>}/>
 
       </Routes>
       <Footer/>
