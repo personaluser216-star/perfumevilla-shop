@@ -10,10 +10,10 @@ const Footer = () => {
   { name: "Contact", href: "/contact" },
 ];
 const categories = [
-  { name: "Men's Perfume", href: "/category/mens-perfume" },
-  { name: "Women's Perfume", href: "/category/womens-perfume" },
-  { name: "Room's Perfume", href: "/category/room-perfume" },
-  { name: "Car's Perfume", href: "/category/car-perfume" },
+  { name: "Men's Perfume", href: "/collection/Men'sPerfume" },
+        { name: "Women's Perfume", href: "/collection/Women'sPerfume" },
+        { name: "Unisex Perfume", href: "/collection/UnisexPerfume" },
+ 
 ];
   return (
     <footer className="bg-[#f8f7f4] text-black pt-12">
