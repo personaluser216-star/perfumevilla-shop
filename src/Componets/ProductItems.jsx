@@ -24,7 +24,7 @@ const ProductItems = ({id,image,name,price}) => {
 <div className='text-center pb-3 pt-3'>
       <button 
       
-      className='bg-[#5b4f47] px-12 py-2 text-white'>Shop Now</button>
+      className='bg-[#5b4f47] md:px-12 md:py-2 py-1 px-8 text-white'>Shop Now</button>
 </div>
     </div>
     
