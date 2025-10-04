@@ -3,6 +3,7 @@ import { ShopContext } from "../Context/ShopContext";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import stick from "../assets/stick.jpg";
+import emptycart from "../assets/emptycart.png"
 
 const Cart = () => {
   const { cart, updateCart, currency } = useContext(ShopContext);
@@ -12,9 +13,19 @@ const Cart = () => {
 
   if (!cart || cart.length === 0) {
     return (
-      <p className="text-center text-gray-500 mt-10 text-lg">
-        Your cart is empty
+     <div className="text-center">
+      <img src={emptycart} alt="" className="mx-auto"/>
+       <p className="text-center text-gray-500 text-lg">
+        No items in Cart
       </p>
+       <button
+          type="button"
+          onClick={() => navigate("/collection")}
+          className="mt-2 mb-12 hover:bg-[#5b4f47] hover:text-white border-[#5b4f47] border px-6 py-3 text-md-lg hover:opacity-90 transition"
+        >
+          Continue Shopping
+        </button>
+     </div>
     );
   }
 
