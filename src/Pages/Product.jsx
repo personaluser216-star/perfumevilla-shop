@@ -72,7 +72,7 @@ const handleAddTowishlist = async () => {
       </div>
 
       {/* Product Details */}
-      <div className="-t-2 md:pt-16 md:pb-16">
+      <div className="-t-2 md:pt-16 md:pb-16 md:mr-0  mr-3">
         <div className="flex flex-col sm:flex-row gap-10 ">
           {/* Image Section */}
           <div className="flex-1 flex items-start justify-center">
@@ -87,7 +87,7 @@ const handleAddTowishlist = async () => {
                   key={index}
                   src={img}
                   alt=""
-                  className="w-20 h-20 border border-[#5b4f47] cursor-pointer"
+                  className="w-20 md:h-20 border border-[#5b4f47] cursor-pointer"
                   onClick={() => setImage(img)}
                 />
               ))}
@@ -95,7 +95,7 @@ const handleAddTowishlist = async () => {
           </div>
 
           {/* Info Section */}
-          <div className="flex-1 pr-12">
+          <div className="flex-1 pr-12 pl-5">
             <h1 className="text-2xl font-bold">{productData.name}</h1>
             <p className="mt-3 text-gray-600">{productData.description}</p>
 
@@ -217,7 +217,7 @@ const handleAddTowishlist = async () => {
             </table>
 
             {/* Buttons */}
-            <div className="grid md:grid-cols-2 gap-4">
+            <div className="grid md:grid-cols-2 md:gap-4">
               {/* Wishlist */}
               <div>
                 <button 
@@ -232,7 +232,7 @@ const handleAddTowishlist = async () => {
               <div>
                 <button
                  onClick={handleAddToCart}
-                  className="hover:bg-[#5b4f47] hover:text-white transition-colors duration-300 mt-10 border border-gray-500 w-full p-2 flex items-center justify-center gap-2"
+                  className="hover:bg-[#5b4f47] hover:text-white transition-colors duration-300 md:mt-10  mt-4 border border-gray-500 w-full p-2 flex items-center justify-center gap-2"
                 >
                   <BsCart3 className="text-xl" />
                   <span>Add To Cart</span>
@@ -244,7 +244,7 @@ const handleAddTowishlist = async () => {
       </div>
 
       {/* Description + Reviews */}
-      <div className="mt-16 ml-12 mr-12">
+      <div className="mt-16 md:ml-12 md:mr-12 ml-4 mr-4">
         <div className="flex">
           <b className="border px-5 py-3 text-md">Description</b>
           <p className="border px-5 py-3 text-md">Reviews (122)</p>
