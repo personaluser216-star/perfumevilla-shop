@@ -119,7 +119,7 @@ const Service = () => {
 
       {/* Services Section */}
       <AnimateOnScroll animation="animate__fadeInUp" delay={400}>
-        <div className="py-16">
+        <div className="md:py-16">
           <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center px-6 p-20">
             <div>
               <h2 className="text-2xl md:text-3xl font-bold text-[#5b4f47] mb-6">Our Services</h2>
