@@ -4,6 +4,7 @@ import { BsCart4 } from "react-icons/bs";
 import { FaRegHeart } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 import { ShopContext } from "../Context/ShopContext";
+import { FaBoxOpen } from "react-icons/fa"; 
 
 const Navbar = () => {
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -131,6 +132,16 @@ const Navbar = () => {
           {totalItems}
         </span>
       </Link>
+   <Link to="/orders" className="relative text-[#5b4f47] ml-4 group">
+  <FaBoxOpen className="text-3xl sm:text-4xl" />
+
+  {/* Tooltip on right side */}
+  <span className="absolute top-1/2 left-full ml-2 -translate-y-1/2 bg-[#5b4f47] text-white text-xs px-2 py-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">
+    Order Track
+  </span>
+</Link>
+
+
 
   {/* Mobile Menu Toggle */}
   <button
@@ -161,7 +172,7 @@ const Navbar = () => {
         <div className="md:hidden mx-4 my-2 rounded-xl shadow-lg bg-[#5b4f47] p-4 animate-fadeIn">
           {navItems.map((item, idx) =>
             item.isDropdown ? (
-              <div key={idx} className="border-b border-gray-200 pb-2">
+              <div key={idx} className=" border-gray-200 pb-2">
                 <button
                   className="flex justify-between items-center w-full text-left text-sm text-white font-semibold uppercase py-2"
                   onClick={() =>
