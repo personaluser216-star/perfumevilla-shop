@@ -132,14 +132,16 @@ const Navbar = () => {
           {totalItems}
         </span>
       </Link>
-   <Link to="/orders" className="relative text-[#5b4f47] ml-4 group">
+ <Link to="/orders" className="relative text-[#5b4f47] ml-4 group">
   <FaBoxOpen className="text-3xl sm:text-4xl" />
 
-  {/* Tooltip on right side */}
-  <span className="absolute top-1/2 left-full ml-2 -translate-y-1/2 bg-[#5b4f47] text-white text-xs px-2 py-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">
+  {/* Tooltip only for md and above */}
+  <span className="hidden md:inline-block absolute top-1/2 left-full ml-2 -translate-y-1/2 bg-[#5b4f47] text-white text-xs px-2 py-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">
     Order Track
   </span>
 </Link>
+
+
 
 
 
@@ -168,65 +170,74 @@ const Navbar = () => {
       </div>
 
       {/* Mobile Menu */}
-      {isMobileMenuOpen && (
-        <div className="md:hidden mx-4 my-2 rounded-xl shadow-lg bg-[#5b4f47] p-4 animate-fadeIn">
-          {navItems.map((item, idx) =>
-            item.isDropdown ? (
-              <div key={idx} className=" border-gray-200 pb-2">
-                <button
-                  className="flex justify-between items-center w-full text-left text-sm text-white font-semibold uppercase py-2"
-                  onClick={() =>
-                    setOpenDropdown(
-                      openDropdown === item.label ? null : item.label
-                    )
-                  }
+    {isMobileMenuOpen && (
+  <div className="md:hidden mx-4 my-2 rounded-xl shadow-lg bg-[#5b4f47] p-4 animate-fadeIn">
+    {navItems.map((item, idx) =>
+      item.isDropdown ? (
+        <div key={idx} className=" border-gray-200 pb-2">
+          <button
+            className="flex justify-between items-center w-full text-left text-sm text-white font-semibold uppercase py-2"
+            onClick={() =>
+              setOpenDropdown(
+                openDropdown === item.label ? null : item.label
+              )
+            }
+          >
+            {item.label}
+            <svg
+              className={`w-5 h-5 ml-2 transform transition-transform ${
+                openDropdown === item.label ? "rotate-180" : ""
+              }`}
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M19 9l-7 7-7-7"
+              />
+            </svg>
+          </button>
+          {openDropdown === item.label && (
+            <div className="pl-4 mt-1 space-y-2 transition-all duration-300 ease-in-out">
+              {item.items.map((subItem, subIdx) => (
+                <Link
+                  key={subIdx}
+                  to={subItem.href}
+                  className="block text-sm text-white transition-colors duration-200 uppercase"
+                  onClick={() => {
+                    setOpenDropdown(null); // close dropdown
+                    setMobileMenuOpen(false); // close mobile menu
+                    setActiveLink(subItem.label); // optional: set active link
+                  }}
                 >
-                  {item.label}
-                  <svg
-                    className={`w-5 h-5 ml-2 transform transition-transform ${
-                      openDropdown === item.label ? "rotate-180" : ""
-                    }`}
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M19 9l-7 7-7-7"
-                    />
-                  </svg>
-                </button>
-                {openDropdown === item.label && (
-                  <div className="pl-4 mt-1 space-y-2 transition-all duration-300 ease-in-out">
-                    {item.items.map((subItem, subIdx) => (
-                      <Link
-                        key={subIdx}
-                        to={subItem.href}
-                        className="block text-sm text-white transition-colors duration-200 uppercase"
-                      >
-                        {subItem.label}
-                      </Link>
-                    ))}
-                  </div>
-                )}
-              </div>
-            ) : (
-              <Link
-                key={idx}
-                to={item.href}
-                onClick={() => setActiveLink(item.label)}
-                className={`block py-2 text-sm text-white uppercase transition-colors duration-200 ${
-                  activeLink === item.label ? "font-semibold" : "font-normal"
-                }`}
-              >
-                {item.label}
-              </Link>
-            )
+                  {subItem.label}
+                </Link>
+              ))}
+            </div>
           )}
         </div>
-      )}
+      ) : (
+        <Link
+          key={idx}
+          to={item.href}
+          onClick={() => {
+            setActiveLink(item.label);
+            setMobileMenuOpen(false); // close mobile menu
+          }}
+          className={`block py-2 text-sm text-white uppercase transition-colors duration-200 ${
+            activeLink === item.label ? "font-semibold" : "font-normal"
+          }`}
+        >
+          {item.label}
+        </Link>
+      )
+    )}
+  </div>
+)}
+
     </nav>
   );
 };
