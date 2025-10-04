@@ -57,7 +57,7 @@ const Ingredients = () => {
   };
 
   return (
-    <section ref={sectionRef} className="bg-[#f8f7f4] py-12">
+    <section ref={sectionRef} className="bg-[#f8f7f4] md:py-12 py-4">
       <div className="text-center">
         <h2
           className={`text-2xl md:text-3xl font-bold text-[#5b4f47] mb-4 md:mt-6 ${
@@ -67,7 +67,7 @@ const Ingredients = () => {
           Ingredients You Understand
         </h2>
         <p
-          className={`text-gray-600 mb-6 text-lg md:text-base md:pb-20 ${
+          className={`text-gray-600 mb-6 text-md p-1 md:text-base md:pb-20 ${
             isVisible ? "animate__animated animate__fadeInUp animate__delay-1s" : "opacity-0"
           }`}
         >
